@@ -135,10 +135,43 @@ func (d *BorgRepoDataSource) Schema(
 				Computed:            true,
 				MarkdownDescription: "IDs of SSH keys which can access the repository via rsync.",
 			},
-			"server": schema.ObjectAttribute{
-				AttributeTypes:      serverAttributes,
+			"server": schema.SingleNestedAttribute{
 				Computed:            true,
 				MarkdownDescription: "Information about the server where the repository is hosted.",
+				Attributes: map[string]schema.Attribute{
+					"fingerprint_ecdsa": schema.StringAttribute{
+						Computed:            true,
+						MarkdownDescription: "Fingerprint of the server's ECDSA SSH key.",
+					},
+					"fingerprint_ed25519": schema.StringAttribute{
+						Computed:            true,
+						MarkdownDescription: "Fingerprint of the server's ED25519 SSH key.",
+					},
+					"fingerprint_rsa": schema.StringAttribute{
+						Computed:            true,
+						MarkdownDescription: "Fingerprint of the server's RSA SSH key.",
+					},
+					"hostname": schema.StringAttribute{
+						Computed:            true,
+						MarkdownDescription: "Hostname of the server.",
+					},
+					"id": schema.StringAttribute{
+						Computed:            true,
+						MarkdownDescription: "Internal ID of the server.",
+					},
+					"location": schema.StringAttribute{
+						Computed:            true,
+						MarkdownDescription: "Location of the server.",
+					},
+					"public": schema.BoolAttribute{
+						Computed:            true,
+						MarkdownDescription: "Whether the server is public.",
+					},
+					"region": schema.StringAttribute{
+						Computed:            true,
+						MarkdownDescription: "Region in which the server is located.",
+					},
+				},
 			},
 			"sftp_enabled": schema.BoolAttribute{
 				Computed:            true,

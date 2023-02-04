@@ -44,7 +44,7 @@ data "borgbase_borg_repo" "example" {
 - `region` (String) Region where the repository is hosted (eu or us).
 - `repo_path` (String) SSH path where the repository can be accessed.
 - `rsync_keys` (List of String) IDs of SSH keys which can access the repository via rsync.
-- `server` (Object) Information about the server where the repository is hosted. (see [below for nested schema](#nestedatt--server))
+- `server` (Attributes) Information about the server where the repository is hosted. (see [below for nested schema](#nestedatt--server))
 - `sftp_enabled` (Boolean) Whether SFTP access to the repository should be enabled.
 
 <a id="nestedatt--compaction"></a>
@@ -64,13 +64,13 @@ Read-Only:
 
 Read-Only:
 
-- `fingerprint_ecdsa` (String)
-- `fingerprint_ed25519` (String)
-- `fingerprint_rsa` (String)
-- `hostname` (String)
-- `id` (String)
-- `location` (String)
-- `public` (Boolean)
-- `region` (String)
+- `fingerprint_ecdsa` (String) Fingerprint of the server's ECDSA SSH key.
+- `fingerprint_ed25519` (String) Fingerprint of the server's ED25519 SSH key.
+- `fingerprint_rsa` (String) Fingerprint of the server's RSA SSH key.
+- `hostname` (String) Hostname of the server.
+- `id` (String) Internal ID of the server.
+- `location` (String) Location of the server.
+- `public` (Boolean) Whether the server is public.
+- `region` (String) Region in which the server is located.
 
 

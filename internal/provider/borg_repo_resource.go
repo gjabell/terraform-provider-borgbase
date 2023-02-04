@@ -15,7 +15,6 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/float64planmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/int64planmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/listplanmodifier"
-	"github.com/hashicorp/terraform-plugin-framework/resource/schema/objectplanmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/planmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/stringplanmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/schema/validator"
@@ -230,12 +229,42 @@ func (r *BorgRepoResource) Schema(
 					listplanmodifier.UseStateForUnknown(),
 				},
 			},
-			"server": schema.ObjectAttribute{
-				AttributeTypes:      serverAttributes,
+			"server": schema.SingleNestedAttribute{
 				Computed:            true,
 				MarkdownDescription: "Information about the server where the repository is hosted.",
-				PlanModifiers: []planmodifier.Object{
-					objectplanmodifier.UseStateForUnknown(),
+				Attributes: map[string]schema.Attribute{
+					"fingerprint_ecdsa": schema.StringAttribute{
+						Computed:            true,
+						MarkdownDescription: "Fingerprint of the server's ECDSA SSH key.",
+					},
+					"fingerprint_ed25519": schema.StringAttribute{
+						Computed:            true,
+						MarkdownDescription: "Fingerprint of the server's ED25519 SSH key.",
+					},
+					"fingerprint_rsa": schema.StringAttribute{
+						Computed:            true,
+						MarkdownDescription: "Fingerprint of the server's RSA SSH key.",
+					},
+					"hostname": schema.StringAttribute{
+						Computed:            true,
+						MarkdownDescription: "Hostname of the server.",
+					},
+					"id": schema.StringAttribute{
+						Computed:            true,
+						MarkdownDescription: "Internal ID of the server.",
+					},
+					"location": schema.StringAttribute{
+						Computed:            true,
+						MarkdownDescription: "Location of the server.",
+					},
+					"public": schema.BoolAttribute{
+						Computed:            true,
+						MarkdownDescription: "Whether the server is public.",
+					},
+					"region": schema.StringAttribute{
+						Computed:            true,
+						MarkdownDescription: "Region in which the server is located.",
+					},
 				},
 			},
 			"sftp_enabled": schema.BoolAttribute{
