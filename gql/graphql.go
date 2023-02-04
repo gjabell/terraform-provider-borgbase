@@ -221,13 +221,13 @@ func Execute(client *http.Client,
 
 	variables, err := json.Marshal(_args)
 	if err != nil {
-		return err
+		return fmt.Errorf("failed to marshal graphql arguments: %w", err)
 	}
 
 	data, err := json.Marshal(&request{
 		Query: query, Variables: string(variables)})
 	if err != nil {
-		return err
+		return fmt.Errorf("failed to marshal graphql query: %w", err)
 	}
 
 	req, err := http.NewRequest(http.MethodPost, url, bytes.NewReader(data))
@@ -253,7 +253,7 @@ func Execute(client *http.Client,
 
 	var wrapper response
 	if err := json.Unmarshal(body, &wrapper); err != nil {
-		return err
+		return fmt.Errorf("failed to unmarshal graphql response: %w", err)
 	}
 	if len(wrapper.Errors) != 0 {
 		return wrapper.Errors
@@ -264,5 +264,8 @@ func Execute(client *http.Client,
 		return nil
 	}
 
-	return json.Unmarshal(payload, schema)
+	if err := json.Unmarshal(payload, schema); err != nil {
+		return fmt.Errorf("failed to unmarshal graphql body: %w", err)
+	}
+	return nil
 }
