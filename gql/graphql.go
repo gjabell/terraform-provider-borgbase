@@ -216,7 +216,7 @@ func Execute(client *http.Client,
 
 	_args := make(map[string]interface{}, len(args))
 	for key, arg := range args {
-		_args[key] = arg.Value
+		_args[key] = arg.Value()
 	}
 
 	variables, err := json.Marshal(_args)
