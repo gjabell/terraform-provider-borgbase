@@ -7,4 +7,7 @@ docs:
 install: build
 	go install ./...
 
-.PHONY: build docs install
+testacc:
+	TF_ACC=1 go test ./... -v $(TESTARGS) -timeout 120m
+
+.PHONY: build docs install testacc
