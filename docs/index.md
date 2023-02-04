@@ -14,7 +14,7 @@ description: |-
 
 ```terraform
 provider "borgbase" {
-  token = "changeme"
+  api_token = "changeme"
 }
 ```
 
