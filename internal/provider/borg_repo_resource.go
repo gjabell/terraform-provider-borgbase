@@ -50,12 +50,12 @@ func (r *BorgRepoResource) Schema(
 	resp *resource.SchemaResponse,
 ) {
 	resp.Schema = schema.Schema{
-		MarkdownDescription: "BorgBase borg repository",
+		MarkdownDescription: "BorgBase borg repository.",
 		Attributes: map[string]schema.Attribute{
 			"alert_days": schema.Int64Attribute{
 				Computed:            true,
 				Optional:            true,
-				MarkdownDescription: "Number of days after which an alert should be triggered if no new backups are made",
+				MarkdownDescription: "Number of days after which an alert should be triggered if no new backups are made.",
 				PlanModifiers: []planmodifier.Int64{
 					int64planmodifier.UseStateForUnknown(),
 				},
@@ -63,7 +63,7 @@ func (r *BorgRepoResource) Schema(
 			"append_only": schema.BoolAttribute{
 				Computed:            true,
 				Optional:            true,
-				MarkdownDescription: "Whether the repository should allow old data to be deleted",
+				MarkdownDescription: "Whether the repository should allow old data to be deleted.",
 				PlanModifiers: []planmodifier.Bool{
 					boolplanmodifier.UseStateForUnknown(),
 				},
@@ -72,7 +72,7 @@ func (r *BorgRepoResource) Schema(
 				ElementType:         types.StringType,
 				Computed:            true,
 				Optional:            true,
-				MarkdownDescription: "IDs of SSH keys which are only allowed to append data to the repository",
+				MarkdownDescription: "IDs of SSH keys which are only allowed to append data to the repository.",
 				PlanModifiers: []planmodifier.List{
 					listplanmodifier.UseStateForUnknown(),
 				},
@@ -80,23 +80,23 @@ func (r *BorgRepoResource) Schema(
 			"borg_version": schema.StringAttribute{
 				Computed:            true,
 				Optional:            true,
-				MarkdownDescription: "Borg version to use for the repository (defaults to latest stable version)",
+				MarkdownDescription: "Borg version to use for the repository (defaults to latest stable version).",
 			},
 			"compaction": schema.SingleNestedAttribute{
 				Computed:            true,
 				Optional:            true,
-				MarkdownDescription: "Settings for repository compaction",
+				MarkdownDescription: "Settings for repository compaction.",
 				Attributes: map[string]schema.Attribute{
 					"enabled": schema.BoolAttribute{
 						Required:            true,
-						MarkdownDescription: "Whether to enable repository compaction",
+						MarkdownDescription: "Whether to enable repository compaction.",
 						PlanModifiers: []planmodifier.Bool{
 							boolplanmodifier.UseStateForUnknown(),
 						},
 					},
 					"hour": schema.Int64Attribute{
 						Required:            true,
-						MarkdownDescription: "Hour of the day when the repository should be compacted",
+						MarkdownDescription: "Hour of the day when the repository should be compacted.",
 						PlanModifiers: []planmodifier.Int64{
 							int64planmodifier.UseStateForUnknown(),
 						},
@@ -106,14 +106,14 @@ func (r *BorgRepoResource) Schema(
 					},
 					"hour_timezone": schema.StringAttribute{
 						Required:            true,
-						MarkdownDescription: "Timezone of repository compaction hour",
+						MarkdownDescription: "Timezone of repository compaction hour.",
 						PlanModifiers: []planmodifier.String{
 							stringplanmodifier.UseStateForUnknown(),
 						},
 					},
 					"interval": schema.Int64Attribute{
 						Required:            true,
-						MarkdownDescription: "Repository compaction interval value (1-24)",
+						MarkdownDescription: "Repository compaction interval value (1-24).",
 						PlanModifiers: []planmodifier.Int64{
 							int64planmodifier.UseStateForUnknown(),
 						},
@@ -123,7 +123,7 @@ func (r *BorgRepoResource) Schema(
 					},
 					"interval_unit": schema.StringAttribute{
 						Required:            true,
-						MarkdownDescription: "Repository compaction interval unit (days, weeks, or months)",
+						MarkdownDescription: "Repository compaction interval unit (days, weeks, or months).",
 						PlanModifiers: []planmodifier.String{
 							stringplanmodifier.UseStateForUnknown(),
 						},
@@ -135,28 +135,28 @@ func (r *BorgRepoResource) Schema(
 			},
 			"created_at": schema.StringAttribute{
 				Computed:            true,
-				MarkdownDescription: "Date when the repository was created",
+				MarkdownDescription: "Date when the repository was created.",
 				PlanModifiers: []planmodifier.String{
 					stringplanmodifier.UseStateForUnknown(),
 				},
 			},
 			"current_usage": schema.Float64Attribute{
 				Computed:            true,
-				MarkdownDescription: "Current usage of the repository in megabytes",
+				MarkdownDescription: "Current usage of the repository in megabytes.",
 				PlanModifiers: []planmodifier.Float64{
 					float64planmodifier.UseStateForUnknown(),
 				},
 			},
 			"encryption": schema.StringAttribute{
 				Computed:            true,
-				MarkdownDescription: "Whether the repository is encrypted",
+				MarkdownDescription: "Whether the repository is encrypted.",
 				PlanModifiers: []planmodifier.String{
 					stringplanmodifier.UseStateForUnknown(),
 				},
 			},
 			"format": schema.StringAttribute{
 				Computed:            true,
-				MarkdownDescription: "Format of the repository",
+				MarkdownDescription: "Format of the repository.",
 				PlanModifiers: []planmodifier.String{
 					stringplanmodifier.UseStateForUnknown(),
 				},
@@ -165,33 +165,33 @@ func (r *BorgRepoResource) Schema(
 				ElementType:         types.StringType,
 				Computed:            true,
 				Optional:            true,
-				MarkdownDescription: "IDs of SSH keys which have full access to the repository",
+				MarkdownDescription: "IDs of SSH keys which have full access to the repository.",
 				PlanModifiers: []planmodifier.List{
 					listplanmodifier.UseStateForUnknown(),
 				},
 			},
 			"id": schema.StringAttribute{
 				Computed:            true,
-				MarkdownDescription: "Internal BorgBase repository identifier",
+				MarkdownDescription: "Internal BorgBase repository identifier.",
 				PlanModifiers: []planmodifier.String{
 					stringplanmodifier.UseStateForUnknown(),
 				},
 			},
 			"last_modified": schema.StringAttribute{
 				Computed:            true,
-				MarkdownDescription: "Date when the repository was last modified",
+				MarkdownDescription: "Date when the repository was last modified.",
 				PlanModifiers: []planmodifier.String{
 					stringplanmodifier.UseStateForUnknown(),
 				},
 			},
 			"name": schema.StringAttribute{
 				Required:            true,
-				MarkdownDescription: "User-defined repository identifier",
+				MarkdownDescription: "User-defined repository identifier.",
 			},
 			"quota": schema.Int64Attribute{
 				Computed:            true,
 				Optional:            true,
-				MarkdownDescription: "Max allowed size of the repository in megabytes",
+				MarkdownDescription: "Max allowed size of the repository in megabytes.",
 				PlanModifiers: []planmodifier.Int64{
 					int64planmodifier.UseStateForUnknown(),
 				},
@@ -199,14 +199,14 @@ func (r *BorgRepoResource) Schema(
 			"quota_enabled": schema.BoolAttribute{
 				Computed:            true,
 				Optional:            true,
-				MarkdownDescription: "Whether the repository quota should be enabled",
+				MarkdownDescription: "Whether the repository quota should be enabled.",
 				PlanModifiers: []planmodifier.Bool{
 					boolplanmodifier.UseStateForUnknown(),
 				},
 			},
 			"region": schema.StringAttribute{
 				Required:            true,
-				MarkdownDescription: "Region where the repository is hosted (eu or us)",
+				MarkdownDescription: "Region where the repository is hosted (eu or us).",
 				PlanModifiers: []planmodifier.String{
 					stringplanmodifier.RequiresReplace(),
 				},
@@ -216,7 +216,7 @@ func (r *BorgRepoResource) Schema(
 			},
 			"repo_path": schema.StringAttribute{
 				Computed:            true,
-				MarkdownDescription: "SSH path where the repository can be accessed",
+				MarkdownDescription: "SSH path where the repository can be accessed.",
 				PlanModifiers: []planmodifier.String{
 					stringplanmodifier.UseStateForUnknown(),
 				},
@@ -225,7 +225,7 @@ func (r *BorgRepoResource) Schema(
 				ElementType:         types.StringType,
 				Computed:            true,
 				Optional:            true,
-				MarkdownDescription: "IDs of SSH keys which can access the repository via rsync",
+				MarkdownDescription: "IDs of SSH keys which can access the repository via rsync.",
 				PlanModifiers: []planmodifier.List{
 					listplanmodifier.UseStateForUnknown(),
 				},
@@ -233,7 +233,7 @@ func (r *BorgRepoResource) Schema(
 			"server": schema.ObjectAttribute{
 				AttributeTypes:      serverAttributes,
 				Computed:            true,
-				MarkdownDescription: "Information about the server where the repository is hosted",
+				MarkdownDescription: "Information about the server where the repository is hosted.",
 				PlanModifiers: []planmodifier.Object{
 					objectplanmodifier.UseStateForUnknown(),
 				},
@@ -241,7 +241,7 @@ func (r *BorgRepoResource) Schema(
 			"sftp_enabled": schema.BoolAttribute{
 				Computed:            true,
 				Optional:            true,
-				MarkdownDescription: "Whether SFTP access to the repository should be enabled",
+				MarkdownDescription: "Whether SFTP access to the repository should be enabled.",
 				PlanModifiers: []planmodifier.Bool{
 					boolplanmodifier.UseStateForUnknown(),
 				},

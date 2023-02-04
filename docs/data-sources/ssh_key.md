@@ -3,12 +3,12 @@
 page_title: "borgbase_ssh_key Data Source - terraform-provider-borgbase"
 subcategory: ""
 description: |-
-  Public SSH key for accessing repositories
+  Public SSH key for accessing repositories.
 ---
 
 # borgbase_ssh_key (Data Source)
 
-Public SSH key for accessing repositories
+Public SSH key for accessing repositories.
 
 ## Example Usage
 
@@ -23,17 +23,17 @@ data "borgbase_ssh_key" "example" {
 
 ### Required
 
-- `name` (String) User-defined key identifier
+- `name` (String) User-defined key identifier.
 
 ### Read-Only
 
-- `added_at` (String) Date when the key was added to BorgBase
-- `bits` (Number) Number of bits in the key
-- `hash_md5` (String) MD5 hash of the SSH key
-- `hash_sha256` (String) SHA256 hash of the SSH key
-- `id` (String) Internal BorgBase key identifier
-- `last_used_at` (String) Date when the key was last used to access BorgBase
-- `public_key` (String) Public SSH key
-- `type` (String) Type of the SSH key
+- `added_at` (String) Date when the key was added to BorgBase.
+- `bits` (Number) Number of bits in the key.
+- `hash_md5` (String) MD5 hash of the SSH key.
+- `hash_sha256` (String) SHA256 hash of the SSH key.
+- `id` (String) Internal BorgBase key identifier.
+- `last_used_at` (String) Date when the key was last used to access BorgBase.
+- `public_key` (String) Public SSH key.
+- `type` (String) Type of the SSH key.
 
 

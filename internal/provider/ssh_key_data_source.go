@@ -35,44 +35,43 @@ func (d *SshKeyDataSource) Schema(
 	resp *datasource.SchemaResponse,
 ) {
 	resp.Schema = schema.Schema{
-		MarkdownDescription: "Public SSH key for accessing repositories",
+		MarkdownDescription: "Public SSH key for accessing repositories.",
 		Attributes: map[string]schema.Attribute{
 			"added_at": schema.StringAttribute{
 				Computed:            true,
-				MarkdownDescription: "Date when the key was added to BorgBase",
+				MarkdownDescription: "Date when the key was added to BorgBase.",
 			},
 			"bits": schema.Int64Attribute{
 				Computed:            true,
-				MarkdownDescription: "Number of bits in the key",
+				MarkdownDescription: "Number of bits in the key.",
 			},
 			"hash_md5": schema.StringAttribute{
 				Computed:            true,
-				MarkdownDescription: "MD5 hash of the SSH key",
+				MarkdownDescription: "MD5 hash of the SSH key.",
 			},
 			"hash_sha256": schema.StringAttribute{
 				Computed:            true,
-				MarkdownDescription: "SHA256 hash of the SSH key",
+				MarkdownDescription: "SHA256 hash of the SSH key.",
 			},
 			"id": schema.StringAttribute{
 				Computed:            true,
-				MarkdownDescription: "Internal BorgBase key identifier",
+				MarkdownDescription: "Internal BorgBase key identifier.",
 			},
 			"last_used_at": schema.StringAttribute{
-				Computed: true,
-				MarkdownDescription: "Date when the key was last used to access " +
-					"BorgBase",
+				Computed:            true,
+				MarkdownDescription: "Date when the key was last used to access BorgBase.",
 			},
 			"name": schema.StringAttribute{
-				MarkdownDescription: "User-defined key identifier",
+				MarkdownDescription: "User-defined key identifier.",
 				Required:            true,
 			},
 			"public_key": schema.StringAttribute{
-				MarkdownDescription: "Public SSH key",
+				MarkdownDescription: "Public SSH key.",
 				Computed:            true,
 			},
 			"type": schema.StringAttribute{
 				Computed:            true,
-				MarkdownDescription: "Type of the SSH key",
+				MarkdownDescription: "Type of the SSH key.",
 			},
 		},
 	}

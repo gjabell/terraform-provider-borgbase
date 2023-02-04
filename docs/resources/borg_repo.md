@@ -3,12 +3,12 @@
 page_title: "borgbase_borg_repo Resource - terraform-provider-borgbase"
 subcategory: ""
 description: |-
-  BorgBase borg repository
+  BorgBase borg repository.
 ---
 
 # borgbase_borg_repo (Resource)
 
-BorgBase borg repository
+BorgBase borg repository.
 
 ## Example Usage
 
@@ -57,43 +57,43 @@ resource "borgbase_borg_repo" "repo_full" {
 
 ### Required
 
-- `name` (String) User-defined repository identifier
-- `region` (String) Region where the repository is hosted (eu or us)
+- `name` (String) User-defined repository identifier.
+- `region` (String) Region where the repository is hosted (eu or us).
 
 ### Optional
 
-- `alert_days` (Number) Number of days after which an alert should be triggered if no new backups are made
-- `append_only` (Boolean) Whether the repository should allow old data to be deleted
-- `append_only_keys` (List of String) IDs of SSH keys which are only allowed to append data to the repository
-- `borg_version` (String) Borg version to use for the repository (defaults to latest stable version)
-- `compaction` (Attributes) Settings for repository compaction (see [below for nested schema](#nestedatt--compaction))
-- `full_access_keys` (List of String) IDs of SSH keys which have full access to the repository
-- `quota` (Number) Max allowed size of the repository in megabytes
-- `quota_enabled` (Boolean) Whether the repository quota should be enabled
-- `rsync_keys` (List of String) IDs of SSH keys which can access the repository via rsync
-- `sftp_enabled` (Boolean) Whether SFTP access to the repository should be enabled
+- `alert_days` (Number) Number of days after which an alert should be triggered if no new backups are made.
+- `append_only` (Boolean) Whether the repository should allow old data to be deleted.
+- `append_only_keys` (List of String) IDs of SSH keys which are only allowed to append data to the repository.
+- `borg_version` (String) Borg version to use for the repository (defaults to latest stable version).
+- `compaction` (Attributes) Settings for repository compaction. (see [below for nested schema](#nestedatt--compaction))
+- `full_access_keys` (List of String) IDs of SSH keys which have full access to the repository.
+- `quota` (Number) Max allowed size of the repository in megabytes.
+- `quota_enabled` (Boolean) Whether the repository quota should be enabled.
+- `rsync_keys` (List of String) IDs of SSH keys which can access the repository via rsync.
+- `sftp_enabled` (Boolean) Whether SFTP access to the repository should be enabled.
 
 ### Read-Only
 
-- `created_at` (String) Date when the repository was created
-- `current_usage` (Number) Current usage of the repository in megabytes
-- `encryption` (String) Whether the repository is encrypted
-- `format` (String) Format of the repository
-- `id` (String) Internal BorgBase repository identifier
-- `last_modified` (String) Date when the repository was last modified
-- `repo_path` (String) SSH path where the repository can be accessed
-- `server` (Object) Information about the server where the repository is hosted (see [below for nested schema](#nestedatt--server))
+- `created_at` (String) Date when the repository was created.
+- `current_usage` (Number) Current usage of the repository in megabytes.
+- `encryption` (String) Whether the repository is encrypted.
+- `format` (String) Format of the repository.
+- `id` (String) Internal BorgBase repository identifier.
+- `last_modified` (String) Date when the repository was last modified.
+- `repo_path` (String) SSH path where the repository can be accessed.
+- `server` (Object) Information about the server where the repository is hosted. (see [below for nested schema](#nestedatt--server))
 
 <a id="nestedatt--compaction"></a>
 ### Nested Schema for `compaction`
 
 Required:
 
-- `enabled` (Boolean) Whether to enable repository compaction
-- `hour` (Number) Hour of the day when the repository should be compacted
-- `hour_timezone` (String) Timezone of repository compaction hour
-- `interval` (Number) Repository compaction interval value (1-24)
-- `interval_unit` (String) Repository compaction interval unit (days, weeks, or months)
+- `enabled` (Boolean) Whether to enable repository compaction.
+- `hour` (Number) Hour of the day when the repository should be compacted.
+- `hour_timezone` (String) Timezone of repository compaction hour.
+- `interval` (Number) Repository compaction interval value (1-24).
+- `interval_unit` (String) Repository compaction interval unit (days, weeks, or months).
 
 
 <a id="nestedatt--server"></a>

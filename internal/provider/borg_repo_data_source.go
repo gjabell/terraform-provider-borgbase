@@ -36,113 +36,113 @@ func (d *BorgRepoDataSource) Schema(
 	resp *datasource.SchemaResponse,
 ) {
 	resp.Schema = schema.Schema{
-		MarkdownDescription: "BorgBase borg repository",
+		MarkdownDescription: "BorgBase borg repository.",
 		Attributes: map[string]schema.Attribute{
 			"alert_days": schema.Int64Attribute{
 				Computed:            true,
-				MarkdownDescription: "Number of days after which an alert should be triggered if no new backups are made",
+				MarkdownDescription: "Number of days after which an alert should be triggered if no new backups are made.",
 			},
 			"append_only": schema.BoolAttribute{
 				Computed:            true,
-				MarkdownDescription: "Whether the repository should allow old data to be deleted",
+				MarkdownDescription: "Whether the repository should allow old data to be deleted.",
 			},
 			"append_only_keys": schema.ListAttribute{
 				ElementType:         types.StringType,
 				Computed:            true,
-				MarkdownDescription: "IDs of SSH keys which are only allowed to append data to the repository",
+				MarkdownDescription: "IDs of SSH keys which are only allowed to append data to the repository.",
 			},
 			"borg_version": schema.StringAttribute{
 				Computed:            true,
-				MarkdownDescription: "Borg version to use for the repository (defaults to latest stable version)",
+				MarkdownDescription: "Borg version to use for the repository (defaults to latest stable version).",
 			},
 			"compaction": schema.SingleNestedAttribute{
 				Computed:            true,
-				MarkdownDescription: "Settings for repo compaction",
+				MarkdownDescription: "Settings for repo compaction.",
 				Attributes: map[string]schema.Attribute{
 					"enabled": schema.BoolAttribute{
 						Computed:            true,
-						MarkdownDescription: "Whether to enable repository compaction",
+						MarkdownDescription: "Whether to enable repository compaction.",
 					},
 					"hour": schema.Int64Attribute{
 						Computed:            true,
-						MarkdownDescription: "Hour of the day when the repository should be compacted",
+						MarkdownDescription: "Hour of the day when the repository should be compacted.",
 					},
 					"hour_timezone": schema.StringAttribute{
 						Computed:            true,
-						MarkdownDescription: "Timezone of repository compaction hour",
+						MarkdownDescription: "Timezone of repository compaction hour.",
 					},
 					"interval": schema.Int64Attribute{
 						Computed:            true,
-						MarkdownDescription: "Repository compaction interval value (1-24)",
+						MarkdownDescription: "Repository compaction interval value (1-24).",
 					},
 					"interval_unit": schema.StringAttribute{
 						Computed:            true,
-						MarkdownDescription: "Repository compaction interval unit (days, weeks, or months)",
+						MarkdownDescription: "Repository compaction interval unit (days, weeks, or months).",
 					},
 				},
 			},
 			"created_at": schema.StringAttribute{
 				Computed:            true,
-				MarkdownDescription: "Date when the repository was created",
+				MarkdownDescription: "Date when the repository was created.",
 			},
 			"current_usage": schema.Float64Attribute{
 				Computed:            true,
-				MarkdownDescription: "Current usage of the repository in megabytes",
+				MarkdownDescription: "Current usage of the repository in megabytes.",
 			},
 			"encryption": schema.StringAttribute{
 				Computed:            true,
-				MarkdownDescription: "Whether the repository is encrypted",
+				MarkdownDescription: "Whether the repository is encrypted.",
 			},
 			"format": schema.StringAttribute{
 				Computed:            true,
-				MarkdownDescription: "Format of the repository",
+				MarkdownDescription: "Format of the repository.",
 			},
 			"full_access_keys": schema.ListAttribute{
 				ElementType:         types.StringType,
 				Computed:            true,
-				MarkdownDescription: "IDs of SSH keys which have full access to the repository",
+				MarkdownDescription: "IDs of SSH keys which have full access to the repository.",
 			},
 			"id": schema.StringAttribute{
 				Computed:            true,
-				MarkdownDescription: "Internal BorgBase repository identifier",
+				MarkdownDescription: "Internal BorgBase repository identifier.",
 			},
 			"last_modified": schema.StringAttribute{
 				Computed:            true,
-				MarkdownDescription: "Date when the repository was last modified",
+				MarkdownDescription: "Date when the repository was last modified.",
 			},
 			"name": schema.StringAttribute{
 				Required:            true,
-				MarkdownDescription: "User-defined repository identifier",
+				MarkdownDescription: "User-defined repository identifier.",
 			},
 			"quota": schema.Int64Attribute{
 				Computed:            true,
-				MarkdownDescription: "Max allowed size of the repository in megabytes",
+				MarkdownDescription: "Max allowed size of the repository in megabytes.",
 			},
 			"quota_enabled": schema.BoolAttribute{
 				Computed:            true,
-				MarkdownDescription: "Whether the repository quota should be enabled",
+				MarkdownDescription: "Whether the repository quota should be enabled.",
 			},
 			"region": schema.StringAttribute{
 				Computed:            true,
-				MarkdownDescription: "Region where the repository is hosted (eu or us)",
+				MarkdownDescription: "Region where the repository is hosted (eu or us).",
 			},
 			"repo_path": schema.StringAttribute{
 				Computed:            true,
-				MarkdownDescription: "SSH path where the repository can be accessed",
+				MarkdownDescription: "SSH path where the repository can be accessed.",
 			},
 			"rsync_keys": schema.ListAttribute{
 				ElementType:         types.StringType,
 				Computed:            true,
-				MarkdownDescription: "IDs of SSH keys which can access the repository via rsync",
+				MarkdownDescription: "IDs of SSH keys which can access the repository via rsync.",
 			},
 			"server": schema.ObjectAttribute{
 				AttributeTypes:      serverAttributes,
 				Computed:            true,
-				MarkdownDescription: "Information about the server where the repository is hosted",
+				MarkdownDescription: "Information about the server where the repository is hosted.",
 			},
 			"sftp_enabled": schema.BoolAttribute{
 				Computed:            true,
-				MarkdownDescription: "Whether SFTP access to the repository should be enabled",
+				MarkdownDescription: "Whether SFTP access to the repository should be enabled.",
 			},
 		},
 	}
