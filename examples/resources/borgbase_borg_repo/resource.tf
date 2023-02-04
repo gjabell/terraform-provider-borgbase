@@ -18,20 +18,20 @@ resource "borgbase_borg_repo" "repo_minimal" {
 resource "borgbase_borg_repo" "repo_full" {
   alert_days       = 2
   append_only      = true
-  append_only_keys = [data.borgbase_ssh_key.append_only]
+  append_only_keys = [data.borgbase_ssh_key.append_only.id]
   borg_version     = "LATEST"
   compaction = {
-    enabled          = true
-    hour             = 14
-    hour_timezone    = "Europe/Berlin"
-    interval         = 6
-    interval_unit    = "weeks"
-    full_access_keys = [data.borgbase_ssh_key.full_access]
+    enabled       = true
+    hour          = 14
+    hour_timezone = "Europe/Berlin"
+    interval      = 6
+    interval_unit = "weeks"
   }
-  name          = "repo_full"
-  quota         = 10000
-  quota_enabled = true
-  region        = "eu"
-  rsync_keys    = [data.borgbase_ssh_key.rsync]
-  sftp_enabled  = true
+  full_access_keys = [data.borgbase_ssh_key.full_access.id]
+  name             = "repo_full"
+  quota            = 10000
+  quota_enabled    = true
+  region           = "eu"
+  rsync_keys       = [data.borgbase_ssh_key.rsync.id]
+  sftp_enabled     = true
 }
