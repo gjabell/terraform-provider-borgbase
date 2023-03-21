@@ -1,5 +1,7 @@
 # Terraform BorgBase Provider
 
+⚠️ This provider is a work in progress and may be missing functionality or have bugs ⚠️
+
 This is a Terraform provider for [BorgBase](https://www.borgbase.com). It can currently be used to manage SSH keys and Borg repositories. Managing Restic repositories will be supported in a future version.
 
 This provider is available on the [Terraform registry](https://registry.terraform.io/providers/gjabell/borgbase).
